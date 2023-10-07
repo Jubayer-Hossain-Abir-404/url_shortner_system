@@ -22,14 +22,22 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('generate-shorten-link', [ShortLinkController::class, 'store'])->name('generate.shorten.link.post');
 
+    Route::get('edit/{short_link}', [ShortLinkController::class, 'edit'])->name('generate.shorten.link.edit');
+
+    Route::put('update/{short_link}', [ShortLinkController::class, 'update'])->name('generate.shorten.link.update');
+
+    Route::put('update/{short_link}', [ShortLinkController::class, 'update'])->name('generate.shorten.link.update');
+
+    Route::get('delete/{short_link}', [ShortLinkController::class, 'destroy'])->name('deleteShortLink');
+
     Route::get('{code}', [ShortLinkController::class, 'shortenLink'])->name('shorten.link');
 
+    Route::get('auth/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 
-Route::middleware(['guest'])->group(function () {
+Route::middleware(['guest'])->prefix('auth')->group(function () {
     Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
 
     Route::get('/register', [AuthController::class, 'registerPage'])->name('register');

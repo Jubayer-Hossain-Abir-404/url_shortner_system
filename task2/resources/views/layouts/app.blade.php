@@ -29,7 +29,10 @@
                     @if (!Auth::check())
                         <a href="{{ route('login') }}">Login</a>
                     @else
-                        <a href="{{ route('logout') }}">Logout</a>
+                        <div class="d-flex">
+                            <p class="mx-3">{{ Auth::user()->name }}</p>
+                            <a href="{{ route('logout') }}">Logout</a>
+                        </div>
                     @endif
                 </div>
             </div>
