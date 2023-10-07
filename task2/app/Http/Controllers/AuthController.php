@@ -44,4 +44,26 @@ class AuthController extends Controller
         return redirect()->back()->with('error', 'Registration Failed');
     }
 
+
+    public function submitLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        if (!auth()->attempt(['email' => $request->email, 'password' => $request->password], request()->remember)) {
+            return back()->with('status', "Credential Wrong or Something went Wrong !!!");
+        }
+        return redirect()->route('home');
+    }
+
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect()->route('home');
+    }
+
 }

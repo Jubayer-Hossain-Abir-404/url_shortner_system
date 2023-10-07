@@ -32,7 +32,7 @@
                                                 <label class="form-label" for="name" id="name">Your Name</label>
 
                                                 @error('name')
-                                                    <div class="text-danger mt-2 text-sm">
+                                                    <div class="text-danger mt-2 h6">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
@@ -46,7 +46,7 @@
                                                 <label class="form-label"  for="email">Your Email</label>
 
                                                 @error('email')
-                                                    <div class="text-danger mt-2 text-sm">
+                                                    <div class="text-danger mt-2 h6">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
@@ -62,7 +62,7 @@
                                                 <label class="form-label"  for="password">Password</label>
 
                                                 @error('password')
-                                                    <div class="text-danger mt-2 text-sm">
+                                                    <div class="text-danger mt-2 h6">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
