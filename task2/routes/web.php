@@ -20,6 +20,10 @@ use App\Http\Controllers\ShortLinkController;
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [ShortLinkController::class, 'index'])->name('home');
 
+    Route::post('generate-shorten-link', [ShortLinkController::class, 'store'])->name('generate.shorten.link.post');
+
+    Route::get('{code}', [ShortLinkController::class, 'shortenLink'])->name('shorten.link');
+
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
